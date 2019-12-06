@@ -4,6 +4,7 @@ from random import randint
 from bubblesort import Bubble_sort as bsort
 from insertionsort import Insertion_sort as isort
 from selectionsort import Selection_sort as ssort
+from quicksort import Quick_sort as qsort
 
 def trysort(sort_method):
     seed(50)
@@ -23,3 +24,6 @@ trysort(bsort().sort)
 
 print('Selection Sort:')
 trysort(ssort().sort)
+
+print('Quick Sort:')
+trysort(qsort().sort)
