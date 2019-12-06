@@ -1,33 +1,36 @@
-from random import seed
-from random import randint
-
+ 
 class Quick_sort:
-    def quicksort(self, items, left, right):
-        pivot_index = self.select_pivot(items, left, right)
-        i = self.partition(items, left, right, pivot_index)
-
-        print(items)
-        if i > left:
-            self.quicksort(items, left, i-1)
-        if i < pivot_index:
-            self.quicksort(items, i, right)
-            
+    def sort(self, items, left=0, right=None):
+        if not right: right = len(items) - 1
+        print(sum(items))
+        if left < right and right - left > 1:
+            pivot = self.select_pivot(items, left, right)
+            p = self.partition(items, left, right, pivot)
+            self.sort(items, left, p)
+            self.sort(items, p+1, right)
         return None
 
-    def partition(self, items, left, right, pivot_index):
-        while left < right:
-            while items[left] < items[pivot_index]:
-                left += 1
+    def partition(self, items, curr_left, curr_right, pivot):
+        while curr_left < curr_right:
+            if curr_right == pivot: curr_right -= 1
+            if curr_left == pivot: curr_left += 1
+            
+            if items[curr_left] <= items[pivot]:
+                curr_left += 1
+            if items[curr_right] > items[pivot]:
+                curr_right -= 1
+            
 
-            while items[right] > items[pivot_index]:
-                right -= 1
-
-            if left < right:
-                items[left], items[right] = items[right], items[left]
-                left += 1
-                right -= 1
-
-        return left
+            if curr_right > 0 and curr_left < curr_right:
+                self.swap(items, curr_left, curr_right)
+                curr_left += 1
+                curr_right -= 1
+        self.swap(items, pivot, curr_left)
+        return curr_left
 
     def select_pivot(self, items, left, right):
-        return int((left + right)/2)
+        return right
+    
+    def swap(self, items, j, k):
+        items[j], items[k] = items[k], items[j]
+        return None
