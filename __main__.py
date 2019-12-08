@@ -7,13 +7,19 @@ from selectionsort import Selection_sort as ssort
 from quicksort import Quick_sort as qsort
 
 def trysort(sort_method):
-    seed(50)
-    input_array = [randint(0, 10) for x in range(20)]
-    sorted_builtin = sorted(input_array)
+    # seed(50)
+    attempts = []
+    for _ in range(20):
+        input_array = [randint(0, 10) for x in range(20)]
 
-    sort_method(input_array)
-
-    resolution = 'correctly sorted' if sorted_builtin == input_array else 'did NOT sort'
+        try:
+            sorted_builtin = sorted(input_array)
+            sort_method(input_array)
+            attempts.append(sorted_builtin == input_array)
+        except:
+            pass
+    
+    resolution = 'correctly sorted' if all(attempts) else 'did NOT sort'
     print('Method {}.'.format(resolution))
 
 print('Insertion Sort:')
