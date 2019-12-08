@@ -20,7 +20,6 @@ class Quick_sort():
             if items[j] <= pivot:
                 i += 1
                 self.swap(items, i, j)
-        # self.swap(items, i, right)
         return i
 
     def select_pivot(self, items, left, right):
@@ -29,7 +28,6 @@ class Quick_sort():
     def swap(self, items, j, k):
         items[j], items[k] = items[k], items[j]
         return None
-
 
 if __name__ == "__main__":
     
