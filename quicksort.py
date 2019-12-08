@@ -37,8 +37,7 @@ if __name__ == "__main__":
     
     qs = Quick_sort()
 
-    # items = [6, 1, 3, 2, 9, 5, 1, 10, 6, 7, 3, 2, 6, 8, 2, 2, 2, 0, 10, 1]
-    items = [10, 7, 8, 9, 1, 5]
+    items = [6, 1, 3, 2, 9, 5, 1, 10, 6, 7, 3, 2, 6, 8, 2, 2, 2, 0, 10, 1]
     print('Original: ' + str(items))
     qs.sort(items)
     print('Sorted:   ' + str(items))
