@@ -8,8 +8,8 @@ class Merge_sort:
     def sort_helper(self, items):
         if len(items) <= 1: return items
 
-        left =  self.sort_helper(items[:int(len(items)/2)])
-        right = self.sort_helper(items[int(len(items)/2):])
+        left =  self.sort_helper(items[ :(len(items)//2) ])
+        right = self.sort_helper(items[ (len(items)//2): ])
 
         return self.merge(left, right)
 
