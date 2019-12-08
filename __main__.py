@@ -5,6 +5,7 @@ from bubblesort import Bubble_sort as bsort
 from insertionsort import Insertion_sort as isort
 from selectionsort import Selection_sort as ssort
 from quicksort import Quick_sort as qsort
+from mergesort import Merge_sort as msort
 
 def trysort(sort_method):
     # seed(50)
@@ -33,3 +34,6 @@ trysort(ssort().sort)
 
 print('Quick Sort:')
 trysort(qsort().sort)
+
+print('Merge Sort:')
+trysort(msort().sort)
