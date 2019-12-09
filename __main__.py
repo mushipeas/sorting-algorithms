@@ -10,8 +10,8 @@ from mergesort import Merge_sort as msort
 def trysort(sort_method):
     # seed(50)
     attempts = []
-    for _ in range(20):
-        input_array = [randint(0, 10) for x in range(20)]
+    for _ in range(40):
+        input_array = [randint(0, 10) for x in range(1000)]
 
         try:
             sorted_builtin = sorted(input_array)
