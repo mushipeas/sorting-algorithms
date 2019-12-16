@@ -7,7 +7,7 @@ from selectionsort import Selection_sort as ssort
 from quicksort import Quick_sort as qsort
 from mergesort import Merge_sort as msort
 
-def trysort(sort_method):
+def try_sort(sort_method):
     # seed(50)
     attempts = []
     for _ in range(40):
@@ -24,16 +24,16 @@ def trysort(sort_method):
     print('Method {}.'.format(resolution))
 
 print('Insertion Sort:')
-trysort(isort().sort)
+try_sort(isort)
 
 print('Bubble Sort:')
-trysort(bsort().sort)
+try_sort(bsort)
 
 print('Selection Sort:')
-trysort(ssort().sort)
+try_sort(ssort)
 
 print('Quick Sort:')
-trysort(qsort().sort)
+try_sort(qsort)
 
 print('Merge Sort:')
-trysort(msort().sort)
+try_sort(msort)

@@ -1,5 +1,8 @@
 
 class Selection_sort:
+    def __call__(self, items):
+        return self.sort(items)
+        
     def sort(self, items):
         for i in range(len(items)-1):
             j = self.find_smallest(items,i)

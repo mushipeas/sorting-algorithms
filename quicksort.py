@@ -1,4 +1,7 @@
 class Quick_sort():
+    def __call__(self, items):
+        return self.sort(items)
+        
     def sort(self, items, left = 0, right = None):
         if right == None: right = len(items) - 1
 

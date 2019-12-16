@@ -1,5 +1,8 @@
 
 class Insertion_sort:
+    def __call__(self, items):
+        return self.sort(items)
+        
     def sort(self, items):
         for i in range(1,len(items)):
             j = i

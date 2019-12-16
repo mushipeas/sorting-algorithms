@@ -1,5 +1,8 @@
 
 class Merge_sort:
+    def __call__(self, items):
+        return self.sort(items)
+        
     def sort(self, items):
         sorted_list = self.sort_helper(items)
         items.clear()

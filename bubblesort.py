@@ -1,5 +1,8 @@
 
 class Bubble_sort:
+    def __call__(self, items):
+        return self.sort(items)
+        
     def sort(self, items):
         for _ in range(len(items)):
             # print('Iteration {}'.format(_ + 1) )
