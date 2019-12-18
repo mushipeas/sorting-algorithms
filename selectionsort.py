@@ -1,7 +1,6 @@
+from base_inplace_sort import Inplace_sort
 
-class Selection_sort:
-    def __call__(self, items):
-        return self.sort(items)
+class Selection_sort(Inplace_sort):
         
     def sort(self, items):
         for i in range(len(items)-1):
@@ -17,7 +16,3 @@ class Selection_sort:
             if items[j] < smallest_val:
                 smallest_val, smallest_index = items[j], j
         return smallest_index
-
-    def swap(self, items, j, k):
-        items[j], items[k] = items[k], items[j]
-        return None

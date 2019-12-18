@@ -1,8 +1,7 @@
+from base_inplace_sort import Inplace_sort
 
-class Bubble_sort:
-    def __call__(self, items):
-        return self.sort(items)
-        
+class Bubble_sort(Inplace_sort):
+
     def sort(self, items):
         for _ in range(len(items)):
             # print('Iteration {}'.format(_ + 1) )
@@ -12,8 +11,4 @@ class Bubble_sort:
                     self.swap(items, j, j+1)
                     flag = True
             if not flag: break
-        return None
-
-    def swap(self, items, j, k):
-        items[j], items[k] = items[k], items[j]
         return None
