@@ -1,9 +1,9 @@
-class Quick_sort():
-    def __call__(self, items):
-        return self.sort(items)
+from base_inplace_sort import Inplace_sort
+
+class Quick_sort(Inplace_sort):
         
     def sort(self, items, left = 0, right = None):
-        if right == None: right = len(items) - 1
+        if right is None: right = len(items) - 1
 
         if left < right:
             pivot_ind = self.select_pivot(items, left, right)
@@ -27,10 +27,6 @@ class Quick_sort():
 
     def select_pivot(self, items, left, right):
         return right
-    
-    def swap(self, items, j, k):
-        items[j], items[k] = items[k], items[j]
-        return None
 
 if __name__ == "__main__":
     
