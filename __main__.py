@@ -7,20 +7,24 @@ from selectionsort import Selection_sort as ssort
 from quicksort import Quick_sort as qsort
 from mergesort import Merge_sort as msort
 
-def try_sort(sort_method):
-    # seed(50)
-    attempts = []
-    for _ in range(40):
-        input_array = [randint(0, 10) for x in range(1000)]
+RUNS = 2
 
+def try_sort(sort_method):
+
+    attempts = []
+    sm = sort_method()
+
+    for _ in range(RUNS):
+        input_array = [randint(0, 10) for x in range(1000)]
+        
         try:
             sorted_builtin = sorted(input_array)
-            sort_method(input_array)
+            sm(input_array)
             attempts.append(sorted_builtin == input_array)
         except:
             pass
     
-    resolution = 'correctly sorted' if all(attempts) else 'did NOT sort'
+    resolution = 'correctly sorted' if all(attempts) and len(attempts) == RUNS else 'did NOT sort'
     print('Method {}.'.format(resolution))
 
 print('Insertion Sort:')
