@@ -24,7 +24,7 @@ class clock_maker:
         return clocked
 
     def avgtime(self):
-        return self.total_time / self.total_runs 
+        return self.total_time / (self.total_runs or not self.total_runs) 
 
 
 if __name__ == "__main__":
