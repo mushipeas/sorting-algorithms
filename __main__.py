@@ -7,25 +7,29 @@ from selectionsort import Selection_sort as ssort
 from quicksort import Quick_sort as qsort
 from mergesort import Merge_sort as msort
 
-RUNS = 2
+from helpers import clock_maker
 
 def try_sort(sort_method):
 
     attempts = []
-    sm = sort_method()
+    cm_decorator = clock_maker(runs=0)
+    sort_method = cm_decorator(sort_method())
 
     for _ in range(RUNS):
         input_array = [randint(0, 10) for x in range(1000)]
         
         try:
             sorted_builtin = sorted(input_array)
-            sm(input_array)
+            sort_method(input_array)
             attempts.append(sorted_builtin == input_array)
         except:
             pass
     
     resolution = 'correctly sorted' if all(attempts) and len(attempts) == RUNS else 'did NOT sort'
-    print('Method {}.'.format(resolution))
+    print('Method {}. Avg time: {:.4f}s'.format(resolution, cm_decorator.avgtime()))
+
+
+RUNS = 40
 
 print('Insertion Sort:')
 try_sort(isort)
