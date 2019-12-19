@@ -1,16 +1,17 @@
 import abc
 
 class Inplace_sort:
+
     def __call__(self, items):
-        return self.sort(items)
+        self.items = items
+        return self.sort()
 
     @abc.abstractmethod
-    def sort(self, items):
+    def sort(self):
         """
-        Initiate the in-place sorting and return None when finished
+        Initiate the in-place sorting of self.items and return None when finished
         """    
     
-    @staticmethod
-    def swap(items, j, k):
-        items[j], items[k] = items[k], items[j]
+    def swap(self, j, k):
+        self.items[j], self.items[k] = self.items[k], self.items[j]
         return None
