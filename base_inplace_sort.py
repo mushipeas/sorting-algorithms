@@ -7,9 +7,10 @@ class Inplace_sort:
     @abc.abstractmethod
     def sort(self, items):
         """
-        Initiate the in-place sorting and return None
+        Initiate the in-place sorting and return None when finished
         """    
     
-    def swap(self, items, j, k):
+    @staticmethod
+    def swap(items, j, k):
         items[j], items[k] = items[k], items[j]
         return None
