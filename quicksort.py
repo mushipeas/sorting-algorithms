@@ -13,7 +13,7 @@ class Quick_sort(Inplace_sort):
             self.sort(i+1, right)
         return None
 
-
+# current method has recursion issues for large arrays. Needs fixing
     def partition(self, left, right, pivot_ind):
         if not pivot_ind == right: self.swap(pivot_ind, right)
         pivot = self.items[right]
