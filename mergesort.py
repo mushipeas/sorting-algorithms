@@ -7,6 +7,7 @@ class Merge_sort:
         sorted_list = self.sort_helper(items)
         items.clear()
         items.extend(sorted_list)
+        return None
 
     def sort_helper(self, sub_arr):
         if len(sub_arr) <= 1: return sub_arr
