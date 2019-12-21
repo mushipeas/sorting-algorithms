@@ -9,14 +9,14 @@ from mergesort import Merge_sort as msort
 
 from helpers import clock_maker
 
-def try_sort(sort_method):
+def try_sort(sort_method, runs=5, array_len=1000, r_start=0, r_end=50):
 
     attempts = []
     cm_decorator = clock_maker(runs=0)
     sort_method = cm_decorator(sort_method())
 
-    for _ in range(RUNS):
-        input_array = [randint(0, 10) for x in range(1000)]
+    for _ in range(runs):
+        input_array = [randint(r_start, r_end) for x in range(array_len)]
         
         try:
             sorted_builtin = sorted(input_array)
@@ -25,11 +25,13 @@ def try_sort(sort_method):
         except:
             pass
     
-    resolution = 'correctly sorted' if all(attempts) and len(attempts) == RUNS else 'did NOT sort'
-    print('Method {}. Avg time: {:.4f}s'.format(resolution, cm_decorator.avgtime()))
+    avg_runtime = cm_decorator.avgtime()
 
+    resolution = 'correctly sorted' if all(attempts) and len(attempts) == runs else 'did NOT sort'
+    print('Method {}. Avg time: {:.4f}s'.format(resolution, avg_runtime))
+    
+    return avg_runtime
 
-RUNS = 40
 
 print('Insertion Sort:')
 try_sort(isort)
